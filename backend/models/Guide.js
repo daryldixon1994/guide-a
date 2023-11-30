@@ -22,6 +22,9 @@ const guideSchema = new Schema(
     phone: {
       type: String,
     },
+    rate: {
+      type: Number,
+    },
     adress: {
       type: String,
       required: [true, "The blog's body is required"],

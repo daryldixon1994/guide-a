@@ -38,6 +38,7 @@ module.exports = async (req, res) => {
         userId: user._id,
         isUser: user.isUser,
         token,
+        userName: user.userName,
       },
     });
   } catch (error) {

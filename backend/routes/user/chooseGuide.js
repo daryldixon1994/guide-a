@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     let { id, guideId } = req.query;
     const userAdded = await Guide.findByIdAndUpdate(
       guideId,
-      { user: id, isReserved: true },
+      { $set: { user: id, isReserved: true } },
       { new: true }
     );
     res.status(200).json({ status: true, data: userAdded });

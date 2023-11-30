@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminAddGuide from "./pages/AdminAddGuide";
 import AdminLogin from "./pages/AdminLogin";
+  import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div className="App">

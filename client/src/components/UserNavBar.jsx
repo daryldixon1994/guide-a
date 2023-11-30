@@ -4,7 +4,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import "./style.css";
 function UserNavBar() {
   let [searchParams, setSearchParams] = useSearchParams();
-    let [query, setQuery] = React.useState(searchParams.get("id"));
+  let [query, setQuery] = React.useState(searchParams.get("id"));
   console.log(query);
   const activeStyle = {
     all: "unset",
@@ -52,7 +52,7 @@ function UserNavBar() {
         >
           Guides
         </NavLink>
-
+        <span>{localStorage.getItem("userName")}</span>
         <NavLink
           to="/login"
           style={({ isActive }) => {

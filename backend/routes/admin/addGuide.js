@@ -21,12 +21,14 @@ module.exports = async (req, res) => {
         error: "The images dimensions should be higher than 300X500",
       });
     }
+
     const base64Image = await imgBuffer.toString("base64");
     const newGuide = await new Guide({
       name,
       resume,
       phone,
       adress,
+      rate: Math.floor(Math.random() * 6 + 1),
       imgUrl: base64Image,
     });
     await newGuide.save();

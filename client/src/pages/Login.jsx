@@ -23,6 +23,7 @@ function Login() {
           localStorage.setItem("id", res.data.data.userId);
           localStorage.setItem("token", res.data.data.token);
           localStorage.setItem("isUser", res.data.data.isUser);
+          localStorage.setItem("userName", res.data.data.userName);
           navigate("/guides");
         } else if (!res.data.status) {
           setLoading(false);

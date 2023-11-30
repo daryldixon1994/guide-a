@@ -1,14 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
-import { FaRegHandPointDown } from "react-icons/fa";
-
-function TeamItem({ imgB, rate, name, resume, phone, adress }) {
+import { Button, Loader } from "semantic-ui-react";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+function TeamItem({
+  imgUrl,
+  rate,
+  name,
+  resume,
+  phone,
+  adress,
+  _id,
+  isReserved,
+  poke,
+}) {
+  let id = localStorage.getItem("id");
+  const [loading, setLoading] = useState(false);
+  const handlePokeGuide = () => {
+    setLoading(true);
+    axios
+      .put(`/guide/api/user/chooseGuide?guideId=${_id}&id=${id}`)
+      .then((res) => {
+        setLoading(false);
+        // console.log(res);
+        toast.success(`You poked ${res.data.data.name}`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  };
   return (
     <div className="team-item guide-item-2">
-      <button className="poke">Poke now! </button>
+      <Button
+        className="poke"
+        color="orange"
+        disabled={isReserved || poke}
+        onClick={() => {
+          handlePokeGuide();
+        }}
+        loading={loading}
+      >
+        Poke now!{" "}
+      </Button>
       <img
-        src={imgB}
+        src={`data:image/gif;base64,${imgUrl} `}
         alt=""
         width="300px"
         height="500px"
@@ -25,6 +70,7 @@ function TeamItem({ imgB, rate, name, resume, phone, adress }) {
         </div>
         <p>{"⭐".repeat(rate)}</p>
       </div>
+      <ToastContainer />
     </div>
   );
 }

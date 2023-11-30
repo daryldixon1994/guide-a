@@ -5,6 +5,7 @@ import { logoutSession } from "../redux/actions";
 import "./style.css";
 function PublicNavBar() {
   let token = localStorage.getItem("token");
+  let userName = localStorage.getItem("userName");
   let dispatch = useDispatch();
   const activeStyle = {
     all: "unset",
@@ -52,6 +53,7 @@ function PublicNavBar() {
         >
           Guides
         </NavLink>
+        {userName && <span style={{ color: "#fc9c1e" }}> {userName} </span>}
         {token ? (
           <NavLink
             to="/login"
