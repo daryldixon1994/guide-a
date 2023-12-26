@@ -19,7 +19,6 @@ route.get("/getUsers", require("./getUsers"));
 // Get Guide : /guide/api/admin/guide
 route.get("/guide", require("./getGuide"));
 
-
 // Update Guide : /guide/api/admin/updateGuide
 route.put("/updateGuide", require("./updateGuide"));
 
@@ -32,5 +31,8 @@ route.put(
 
 // Delete Guide : /guide/api/admin/deleteGuide
 route.delete("/deleteGuide/:id", require("./deleteGuide"));
+
+// Delete User : /guide/api/admin/deleteUser
+route.delete("/deleteUser/:id", require("./deleteUser"));
 
 module.exports = route;

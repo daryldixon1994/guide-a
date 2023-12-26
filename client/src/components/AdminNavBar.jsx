@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { useParams, useSearchParams } from "react-router-dom";
 import "./style.css";
 function AdminNavBar() {
   let token = localStorage.getItem("token");
+  let isAdmin = localStorage.getItem("isAdmin");
+  let adminId = localStorage.getItem("adminId");
   const activeStyle = {
     all: "unset",
     fontWeight: "500",
@@ -51,18 +52,23 @@ function AdminNavBar() {
           Guides
         </NavLink> */}
 
-        {token ? (
+        {token && isAdmin === "true" ? (
           <>
             <NavLink
               to="/admin/add"
               style={({ isActive }) => {
                 return isActive ? activeStyle : style;
               }}
-              onClick={() => {
-                localStorage.clear();
-              }}
             >
               Add Guide
+            </NavLink>
+            <NavLink
+              to={`/admin/dashboard?id=${adminId}`}
+              style={({ isActive }) => {
+                return isActive ? activeStyle : style;
+              }}
+            >
+              Dashboard
             </NavLink>
             <NavLink
               to="/admin/login"

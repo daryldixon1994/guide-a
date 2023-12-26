@@ -10,7 +10,7 @@ function Guides() {
     axios
       .get("/guide/api/user/guides")
       .then((res) => {
-        // console.log(res.data.data);
+        console.log(res);
         setGuidesData(res.data.data.reverse());
       })
       .catch((err) => {

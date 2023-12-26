@@ -27,12 +27,10 @@ const userShema = new Schema(
         `your password must contain at least one uppaercase character,one lowercase character, one special character`,
       ],
     },
-
     isUser: {
       type: Boolean,
       default: true,
     },
-
     imgUrl: {
       type: "string",
       default: "https://static.thenounproject.com/png/2291755-200.png",

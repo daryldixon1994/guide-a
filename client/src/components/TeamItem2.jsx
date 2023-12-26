@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
-import { Button, Loader } from "semantic-ui-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Button} from "semantic-ui-react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 function TeamItem({
@@ -16,28 +16,38 @@ function TeamItem({
   poke,
 }) {
   let id = localStorage.getItem("id");
+  let token = localStorage.getItem("token");
+
+
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const handlePokeGuide = () => {
     setLoading(true);
-    axios
-      .put(`/guide/api/user/chooseGuide?guideId=${_id}&id=${id}`)
-      .then((res) => {
-        setLoading(false);
-        // console.log(res);
-        toast.success(`You poked ${res.data.data.name}`, {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
+    if (!token) {
+      setLoading(false);
+     
+      navigate("/login");
+    } else {
+      axios
+        .put(`/guide/api/user/chooseGuide?guideId=${_id}&id=${id}`)
+        .then((res) => {
+          setLoading(false);
+          // console.log(res);
+          toast.success(`You poked ${res.data.data.name}`, {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        })
+        .catch((err) => {
+          setLoading(false);
         });
-      })
-      .catch((err) => {
-        setLoading(false);
-      });
+    }
   };
   return (
     <div className="team-item guide-item-2">

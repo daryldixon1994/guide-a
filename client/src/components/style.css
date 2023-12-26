@@ -310,9 +310,10 @@
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: column; */
-  align-items: center;
   justify-content: flex-start;
+  align-items: flex-start;
+  /* flex-direction: column; */
+  /* border: 1px black solid; */
 }
 .admin-guides-list {
   width: 48%;
@@ -327,4 +328,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.card-admin-guide {
+  overflow-x: scroll;
+  position: relative !important;
+}
+.admin-guide-card-dropdown {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  background-color: white !important;
+  padding: 5px 15px !important;
+  border-radius: 5px !important;
 }

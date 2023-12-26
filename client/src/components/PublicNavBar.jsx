@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logoutSession } from "../redux/actions";
 import "./style.css";
 function PublicNavBar() {
   let token = localStorage.getItem("token");
   let userName = localStorage.getItem("userName");
+  let adminId = localStorage.getItem("adminId");
+  let isAdmin = localStorage.getItem("isAdmin");
   let dispatch = useDispatch();
   const activeStyle = {
     all: "unset",
@@ -54,6 +56,16 @@ function PublicNavBar() {
           Guides
         </NavLink>
         {userName && <span style={{ color: "#fc9c1e" }}> {userName} </span>}
+        {token && isAdmin === "true" && (
+          <NavLink
+            to={`/admin/dashboard?id=${adminId}`}
+            style={({ isActive }) => {
+              return isActive ? activeStyle : style;
+            }}
+          >
+            Dashboard
+          </NavLink>
+        )}
         {token ? (
           <NavLink
             to="/login"

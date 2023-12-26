@@ -27,12 +27,11 @@
   padding-top: 50px;
 }
 .admin-dashboard {
-  border: 1px red solid;
+  /* border: 1px red solid; */
   margin-top: 60px;
   height: 90vh;
   display: flex;
   justify-content: center;
-  gap: 10px;
 }
 
 .add-guide-container {

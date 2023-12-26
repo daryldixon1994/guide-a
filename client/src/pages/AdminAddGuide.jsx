@@ -21,7 +21,7 @@ function AdminAddGuide() {
     axios
       .post("/guide/api/admin/addGuide", guideForm)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
         setLoading(false);
         if (!res.data.status) {
           setError(res.data.error);
@@ -33,9 +33,10 @@ function AdminAddGuide() {
         }
       })
       .catch((err) => {
+        console.log(err.response.data.error);
         setLoading(false);
-        if (!err.data.status) {
-          setError(err.data.error);
+        if (!err.response.data) {
+          setError(err.response.data.error);
         }
       });
   };

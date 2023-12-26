@@ -2,7 +2,7 @@ const Guide = require("../../models/Guide");
 
 module.exports = async (req, res) => {
   try {
-    const data = await Guide.find().populate("user", "userName imgUrl");
+    const data = await Guide.find().populate("user", "userName imgUrl email phone");
 
     res.status(200).json({ status: true, data });
   } catch (error) {
