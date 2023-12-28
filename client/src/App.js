@@ -10,7 +10,11 @@ import Footer from "./components/Footer";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminAddGuide from "./pages/AdminAddGuide";
 import AdminLogin from "./pages/AdminLogin";
-  import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";
+import UserDashboard from "./pages/UserDashboard";
+import UserRoute from "./routes/UserRoute";
+import PublicRoute from "./routes/PublicRoute";
+import AdminRoute from "./routes/AdminRoute";
 function App() {
   return (
     <div className="App">
@@ -18,13 +22,63 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/guides" element={<Guides />} />
+        <Route
+          path="/dashboard"
+          element={
+            <UserRoute>
+              <UserDashboard />
+            </UserRoute>
+          }
+        />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/add" element={<AdminAddGuide />} />
-        <Route path="*" element={<Register />} />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/admin/login"
+          element={
+            <PublicRoute>
+              <AdminLogin />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/add"
+          element={
+            <AdminRoute>
+              <AdminAddGuide />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
       </Routes>
       <Footer />
     </div>

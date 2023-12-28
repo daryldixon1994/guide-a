@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 // import { guides } from "../guides";
 import TeamItem2 from "../components/TeamItem2";
+import FadeLoader from "react-spinners/FadeLoader";
 import PublicNavBar from "../components/PublicNavBar";
 import axios from "axios";
 function Guides() {
@@ -33,17 +34,19 @@ function Guides() {
             (elt) => elt.user?._id === localStorage.getItem("id")
           ) ? (
             guidesData.map((elt, i) => (
-              <TeamItem2 poke={true} key={i} {...elt} rate={5} />
+              <TeamItem2 poke={true} key={i} {...elt}  />
             ))
           ) : guidesData &&
             !guidesData.some(
               (elt) => elt.user?._id === localStorage.getItem("id")
             ) ? (
             guidesData.map((elt, i) => (
-              <TeamItem2 poke={false} key={i} {...elt} rate={5} />
+              <TeamItem2 poke={false} key={i} {...elt}  />
             ))
           ) : (
-            <h1 style={{ textAlign: "center" }}>Loading...</h1>
+          <div className="loading-box">
+            <FadeLoader color="#fc9c1e" height={20} radius={5} width={5} />
+          </div>
           )}
         </div>
       </div>

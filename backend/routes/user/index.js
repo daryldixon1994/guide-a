@@ -10,6 +10,9 @@ route.post("/login", require("./login"));
 // // Get all the guides : /guide/api/user/guides
 route.get("/guides", require("./getGuides"));
 
+// // Get own guides : /guide/api/user/Ownguides
+route.get("/Ownguides/:id", require("./getOwnGuides"));
+
 // // Get guide : /guide/api/user/guide
 route.get("/guide", require("./getGuide"));
 

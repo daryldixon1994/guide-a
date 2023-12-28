@@ -41,6 +41,7 @@ function Login() {
     <div>
       <PublicNavBar />
       <div className="form-page">
+        <h1>Login</h1>
         <Form>
           <Form.Group widths="equal">
             <Form.Input

@@ -5,19 +5,19 @@ function Reviews() {
   const data = [
     {
       img: "https://ld-wp73.template-help.com/wordpress/prod_18709/v4/wp-content/uploads/2017/12/testy-1.jpg",
-      name: "James Smith",
+      name: "Saber Elmi",
       review:
         "“I’d like to send you a sincere thank you for all of your assistance during my recent trip to Colorado.  It was invaluable to me and I realize and appreciate it greatly.",
     },
     {
       img: "https://ld-wp73.template-help.com/wordpress/prod_18709/v4/wp-content/uploads/2017/12/testy-2.jpg",
-      name: "Mary Anderson",
+      name: "Mouna Salhi",
       review:
         "“Leslie was an excellent Travel Agent for us and considered our unique needs as she planned our itinerary. Every suggestion she made was excellent.”.",
     },
     {
       img: "https://ld-wp73.template-help.com/wordpress/prod_18709/v4/wp-content/uploads/2017/12/testy-4.jpg",
-      name: "Will Johnson",
+      name: "Haykel Mouelhi",
       review:
         "“I would highly recommend Andy because everything on my month long trip to New Zealand, Australia and French Polynesia went without a hitch.”",
     },

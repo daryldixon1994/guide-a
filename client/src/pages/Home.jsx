@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import Hero from "../components/Hero";
 import WhyTouristo from "../components/WhyTouristo";
 import OurTeam from "../components/OurTeam";
@@ -7,6 +7,7 @@ import Stats from "../components/Stats";
 import Reviews from "../components/Reviews";
 import PublicNavBar from "../components/PublicNavBar";
 function Home() {
+
   return (
     <div>
       <PublicNavBar />

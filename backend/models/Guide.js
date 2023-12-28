@@ -34,6 +34,10 @@ const guideSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    isPending: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
   // creation abd update time

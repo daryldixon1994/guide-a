@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 require("dotenv").config();
+const path = require("path");
 
 //ENVIROMMENT VARIABLES
 const DB = process.env.DB;
@@ -15,7 +16,7 @@ mongoose
   .catch((err) => console.log(err));
 // MIDDELWEARES
 app.use(express.json());
-
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 //ROUTES
 app.use("/guide/api/user", require("./routes/user"));
 app.use("/guide/api/admin", require("./routes/admin"));

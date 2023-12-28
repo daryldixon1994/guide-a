@@ -40,12 +40,12 @@ function PublicNavBar() {
           Home
         </NavLink>
         <NavLink
-          to="/about-us"
+          to="/contact-us"
           style={({ isActive }) => {
             return isActive ? activeStyle : style;
           }}
         >
-          About us
+          Contact us
         </NavLink>
         <NavLink
           to="/guides"
@@ -55,7 +55,11 @@ function PublicNavBar() {
         >
           Guides
         </NavLink>
-        {userName && <span style={{ color: "#fc9c1e" }}> {userName} </span>}
+        {userName && (
+          <NavLink to="/dashboard" style={{ color: "#fc9c1e" }}>
+            {userName}
+          </NavLink>
+        )}
         {token && isAdmin === "true" && (
           <NavLink
             to={`/admin/dashboard?id=${adminId}`}

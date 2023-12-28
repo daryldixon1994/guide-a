@@ -22,6 +22,12 @@ route.get("/guide", require("./getGuide"));
 // Update Guide : /guide/api/admin/updateGuide
 route.put("/updateGuide", require("./updateGuide"));
 
+// Confirm Guide : /guide/api/admin/confirmGuide
+route.put("/confirmGuide", require("./confirmGuide"));
+
+// Unpoke Guide : /guide/api/admin/unpokeGuide
+route.put("/unpokeGuide", require("./unpokeGuide"));
+
 // Update Photo Guide : /guide/api/admin/updatePhotoGuide
 route.put(
   "/updatephotoGuide",

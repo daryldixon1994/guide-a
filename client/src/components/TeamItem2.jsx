@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
-import { Button} from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 function TeamItem({
@@ -18,14 +18,13 @@ function TeamItem({
   let id = localStorage.getItem("id");
   let token = localStorage.getItem("token");
 
-
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const handlePokeGuide = () => {
     setLoading(true);
     if (!token) {
       setLoading(false);
-     
+
       navigate("/login");
     } else {
       axios
@@ -63,7 +62,7 @@ function TeamItem({
         Poke now!{" "}
       </Button>
       <img
-        src={`data:image/gif;base64,${imgUrl} `}
+        src={imgUrl}
         alt=""
         width="300px"
         height="500px"

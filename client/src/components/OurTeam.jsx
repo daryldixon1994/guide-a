@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TeamItem from "./TeamItem";
 import { Link } from "react-router-dom";
 import "./style.css";
 import { guides } from "../../src/guides";
-
+import axios from "axios";
 function OurTeam() {
+  const [guidesData, setGuidesData] = useState();
+  useEffect(() => {
+    axios
+      .get("/guide/api/user/guides")
+      .then((res) => {
+        setGuidesData(res.data.data.reverse());
+      })
+      .catch((err) => {
+        console.dir(err);
+      });
+  }, [guidesData]);
   return (
     <div className="our-team-container">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -18,8 +29,8 @@ function OurTeam() {
         <h1>Our Guides</h1>
         <h3>Check out our top-rated tourist guide</h3>
         <div className="our-team-list">
-          {guides.map((elt, i) => {
-            while (i <= 3) {
+          {guidesData?.map((elt, i) => {
+            while (i <= 3 && elt.rate >= 5) {
               return <TeamItem key={i} {...elt} />;
             }
           })}

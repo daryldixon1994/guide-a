@@ -46,6 +46,7 @@ function Register() {
     <div>
       <PublicNavBar />
       <div className="form-page">
+        <h1>Register</h1>
         <Form>
           <Form.Group widths="equal">
             <Form.Input

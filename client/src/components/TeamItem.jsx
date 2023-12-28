@@ -1,10 +1,31 @@
 import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
-function TeamItem({ img, rate, name, width, height, resume, phone, adress }) {
+function TeamItem({
+  img,
+  imgUrl,
+  rate,
+  name,
+  width,
+  height,
+  resume,
+  phone,
+  adress,
+}) {
   return (
     <div className="team-item">
-      <img src={img} alt="" width="280px" height="186px" />
+      {img && (
+        <div
+          style={{ backgroundImage: `url(${img})` }}
+          className="team-item-img-home"
+        ></div>
+      )}
+      {imgUrl && (
+        <div
+          style={{ backgroundImage: `url(${imgUrl})` }}
+          className="team-item-img-home-2"
+        ></div>
+      )}
       <div className="team-item-body">
         <Link style={{ all: "unset", cursor: "pointer" }}>
           <h5>{name}</h5>
