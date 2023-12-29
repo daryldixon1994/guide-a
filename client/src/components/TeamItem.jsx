@@ -1,17 +1,10 @@
 import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
-function TeamItem({
-  img,
-  imgUrl,
-  rate,
-  name,
-  width,
-  height,
-  resume,
-  phone,
-  adress,
-}) {
+import { CiClock1 } from "react-icons/ci";
+import { FaCheckCircle } from "react-icons/fa";
+
+function TeamItem({ img, imgUrl, rate, name, isPending, isReserved }) {
   return (
     <div className="team-item">
       {img && (
@@ -29,6 +22,32 @@ function TeamItem({
       <div className="team-item-body">
         <Link style={{ all: "unset", cursor: "pointer" }}>
           <h5>{name}</h5>
+          {isPending ? (
+            <span
+              style={{
+                color: "#fe9307",
+                display: "flex",
+                gap: "5px",
+                alignItems: "center",
+              }}
+            >
+              {" "}
+              <CiClock1 size={18} />
+              Pending
+            </span>
+          ) : (
+            <span
+              style={{
+                color: "#16ab39",
+                display: "flex",
+                gap: "5px",
+                alignItems: "center",
+              }}
+            >
+              {" "}
+              <FaCheckCircle /> Approuved
+            </span>
+          )}
         </Link>
         <p>{"⭐".repeat(rate)}</p>
       </div>

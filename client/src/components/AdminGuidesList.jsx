@@ -127,11 +127,6 @@ function AdminGuidesList() {
       </div>
       {guides ? (
         <Card.Group className="admin-guides-list-container">
-          {pending && (
-            <div>
-              <p>No data.</p>
-            </div>
-          )}
           {guides
             .filter((guide) => {
               return pending ? guide.isPending : guide;

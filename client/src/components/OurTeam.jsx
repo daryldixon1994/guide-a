@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import TeamItem from "./TeamItem";
+import TeamItemHome from "./TeamItemHome";
 import { Link } from "react-router-dom";
 import "./style.css";
-import { guides } from "../../src/guides";
+// import { guides } from "../../src/guides";
 import axios from "axios";
 function OurTeam() {
   const [guidesData, setGuidesData] = useState();
@@ -31,7 +31,7 @@ function OurTeam() {
         <div className="our-team-list">
           {guidesData?.map((elt, i) => {
             while (i <= 3 && elt.rate >= 5) {
-              return <TeamItem key={i} {...elt} />;
+              return <TeamItemHome key={i} {...elt} />;
             }
           })}
         </div>
